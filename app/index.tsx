@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import { View, Text, StatusBar, TextInput } from 'react-native';
 
-class Index extends Component {
-  constructor(props) {
+interface Props {} // or define actual props if needed
+
+interface State {
+  text: string;
+}
+
+class Index extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       text: ''
@@ -15,14 +21,18 @@ class Index extends Component {
         <StatusBar backgroundColor="#0288d1" barStyle="light-content" />
 
         <View style={{ padding: 20, backgroundColor: '#03a9f4', elevation: 1 }}>
-          <Text style={{ textAlign: 'center', color: '#FFFFFF', fontWeight: 'bold', fontSize: 18 }}>
-            MyKamus
-          </Text>
+          <Text style={{ textAlign: 'center', color: '#FFFFFF', fontWeight: 'bold', fontSize: 18 }}>MyKamus</Text>
         </View>
+
+        <TextInput
+        style={{height: 40, borderColor: 'gray', borderWidth: 1, marginVertical: 20, marginHorizontal: 10, borderRadius: 10}}
+        onChangeText={text => this.setState({text: text})}
+        value={this.state.text}
+        placeholder='Masukkan Kata Kunci'
+        />
       </View>
     );
   }
 }
 
 export default Index;
-
