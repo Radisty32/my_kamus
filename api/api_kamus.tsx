@@ -13,3 +13,5 @@ const fetchDictionaryData = async ({ word }: { word?: string }) => {
     console.log(error);
   }
 };
+
+export default fetchDictionaryData;
